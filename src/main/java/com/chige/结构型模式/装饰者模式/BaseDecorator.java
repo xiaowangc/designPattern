@@ -9,7 +9,6 @@ public class BaseDecorator implements Component {
      */
     private Component component;
 
-    public BaseDecorator() {}
     public BaseDecorator(Component component) {
         this.component = component;
     }

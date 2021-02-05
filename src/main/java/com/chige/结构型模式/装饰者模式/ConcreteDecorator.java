@@ -6,6 +6,10 @@ package com.chige.结构型模式.装饰者模式;
  */
 public class ConcreteDecorator extends BaseDecorator{
 
+    public ConcreteDecorator(Component component) {
+        super(component);
+    }
+
     @Override
     public void execute() {
         super.execute();

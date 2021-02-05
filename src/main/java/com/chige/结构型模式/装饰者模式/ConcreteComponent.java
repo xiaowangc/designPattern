@@ -7,6 +7,6 @@ public class ConcreteComponent implements Component{
 
     @Override
     public void execute() {
-
+        System.out.println("实现具体部件类方法1");
     }
 }
