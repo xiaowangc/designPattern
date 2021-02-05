@@ -2,6 +2,8 @@ package com.chige.结构型模式.装饰者模式.example;
 
 import com.fasterxml.jackson.databind.ser.Serializers;
 
+import java.io.*;
+
 /**
  * 客户端类负责创建 <被包装对象> 和 <装饰者>，并决定如何进行包装和执行：
  */
@@ -29,8 +31,21 @@ public class ApplicationDemo {
         BaseDecoratorCar flyAndAutoBwmCar = new FlyCarDecorator(new AutoCarDecorator(bwmCar));
         flyAndAutoBwmCar.run();
 
+        // 装饰者模式-源码中的实现
+//        try {
+//            InputStream fileInputSteam = new FileInputStream("af");
+//            FilterInputStream fileInputStream = new BufferedInputStream(new DataInputStream(fileInputSteam));
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+
         // 创建自动驾驶、可以打开天窗的奔驰汽车
-        BaseDecoratorCar autoAndOpenBwmCar = new AutoCarDecorator(new OpenDoorCarDecorator(bwmCar));
+        BaseDecoratorCar autoAndOpenBwmCar = new AutoCarDecorator(
+                new OpenDoorCarDecorator(
+                        new FlyCarDecorator(
+                                new OpenDoorCarDecorator(
+                                        new AutoCarDecorator(benzCar)))));
         autoAndOpenBwmCar.run();
     }
 }
